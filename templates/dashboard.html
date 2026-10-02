@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - IntervAI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body class="dashboard-page">
+
+<!-- ================= SIDEBAR ================= -->
+
+<aside class="sidebar">
+
+    <div class="sidebar-logo">
+        🤖 <span>Interv</span>AI
+    </div>
+
+    <div class="sidebar-menu">
+
+        <a href="#" class="sidebar-link active">
+            <span>⌂</span>
+            Dashboard
+        </a>
+
+        <a href="#" class="sidebar-link">
+            <span>💻</span>
+            Practice
+        </a>
+
+        <a href="#" class="sidebar-link">
+            <span>📊</span>
+            My Progress
+        </a>
+
+        <a href="#" class="sidebar-link">
+            <span>🏆</span>
+            Achievements
+        </a>
+
+    </div>
+
+    <div class="sidebar-bottom">
+
+        <a href="#" class="sidebar-link">
+            <span>⚙️</span>
+            Settings
+        </a>
+
+        <a href="/logout" class="sidebar-link logout-link">
+            <span>↪</span>
+            Logout
+        </a>
+
+    </div>
+
+</aside>
+
+
+<!-- ================= MAIN CONTENT ================= -->
+
+<main class="dashboard-main">
+
+    <!-- TOP NAV -->
+
+    <header class="dashboard-topbar">
+
+        <div class="mobile-logo">
+            🤖 Interv<span>AI</span>
+        </div>
+
+        <div class="topbar-right">
+
+            <div class="notification">
+                🔔
+            </div>
+
+            <div class="profile">
+
+                <div class="profile-avatar">
+                    {{ name[0]|upper }}
+                </div>
+
+                <div class="profile-info">
+
+                    <strong>
+                        {{ name }}
+                    </strong>
+
+                    <span>
+                        AI/ML Candidate
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= WELCOME ================= -->
+
+    <section class="welcome-section">
+
+        <div>
+
+            <p class="welcome-label">
+                YOUR PERSONAL AI INTERVIEW COACH
+            </p>
+
+            <h1>
+                Good Evening, {{ name }} 👋
+            </h1>
+
+            <p>
+                Keep practicing and get one step closer
+                to your dream job.
+            </p>
+
+        </div>
+
+        <button class="primary-btn"
+                onclick="startMockInterview()">
+
+            🚀 Start Mock Interview
+
+        </button>
+
+    </section>
+
+
+    <!-- ================= OVERVIEW ================= -->
+
+    <section class="overview-grid">
+
+
+        <!-- READINESS -->
+
+        <div class="readiness-dashboard-card">
+
+            <div class="card-heading">
+
+                <div>
+
+                    <span>
+                        Interview Readiness
+                    </span>
+
+                    <h2>
+                        78%
+                    </h2>
+
+                </div>
+
+                <div class="target-icon">
+                    🎯
+                </div>
+
+            </div>
+
+            <div class="readiness-progress">
+
+                <div class="readiness-fill"></div>
+
+            </div>
+
+            <p>
+                You're doing great! Keep practicing to
+                improve your readiness score.
+            </p>
+
+        </div>
+
+
+        <!-- QUESTIONS -->
+
+        <div class="overview-stat">
+
+            <div class="overview-stat-icon purple">
+                📝
+            </div>
+
+            <div>
+
+                <span>
+                    Questions Practiced
+                </span>
+
+                <strong>
+                    124
+                </strong>
+
+                <small>
+                    +18 this week
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <!-- SESSIONS -->
+
+        <div class="overview-stat">
+
+            <div class="overview-stat-icon blue">
+                🎤
+            </div>
+
+            <div>
+
+                <span>
+                    Interviews Completed
+                </span>
+
+                <strong>
+                    12
+                </strong>
+
+                <small>
+                    +3 this week
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <!-- SCORE -->
+
+        <div class="overview-stat">
+
+            <div class="overview-stat-icon green">
+                ⭐
+            </div>
+
+            <div>
+
+                <span>
+                    Average Score
+                </span>
+
+                <strong>
+                    82%
+                </strong>
+
+                <small>
+                    +7% improvement
+                </small>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PRACTICE ================= -->
+
+    <section class="practice-section">
+
+        <div class="section-title-row">
+
+            <div>
+
+                <p class="section-label">
+                    PRACTICE
+                </p>
+
+                <h2>
+                    Choose Your Interview
+                </h2>
+
+            </div>
+
+            <a href="#">
+                View All →
+            </a>
+
+        </div>
+
+
+        <div class="practice-grid">
+
+
+            <!-- TECHNICAL -->
+
+            <div class="practice-card">
+
+                <div class="practice-top">
+
+                    <div class="practice-icon technical">
+                        💻
+                    </div>
+
+                    <span class="difficulty">
+                        Intermediate
+                    </span>
+
+                </div>
+
+                <h3>
+                    Technical Interview
+                </h3>
+
+                <p>
+                    Practice Python, SQL, DBMS,
+                    AI/ML and programming questions.
+                </p>
+
+                <div class="practice-details">
+
+                    <span>
+                        📝 10 Questions
+                    </span>
+
+                    <span>
+                        ⏱ 20 Min
+                    </span>
+
+                </div>
+
+                <button class="practice-button"
+                        onclick="startTechnical()">
+
+                    Start Practice →
+
+                </button>
+
+            </div>
+
+
+            <!-- HR -->
+
+            <div class="practice-card">
+
+                <div class="practice-top">
+
+                    <div class="practice-icon hr">
+                        👔
+                    </div>
+
+                    <span class="difficulty beginner">
+                        Beginner
+                    </span>
+
+                </div>
+
+                <h3>
+                    HR Interview
+                </h3>
+
+                <p>
+                    Practice common HR questions
+                    and improve your communication.
+                </p>
+
+                <div class="practice-details">
+
+                    <span>
+                        📝 10 Questions
+                    </span>
+
+                    <span>
+                        ⏱ 15 Min
+                    </span>
+
+                </div>
+
+                <button class="practice-button"
+                        onclick="startHR()">
+
+                    Start Practice →
+
+                </button>
+
+            </div>
+
+
+            <!-- APTITUDE -->
+
+            <div class="practice-card">
+
+                <div class="practice-top">
+
+                    <div class="practice-icon aptitude">
+                        🧠
+                    </div>
+
+                    <span class="difficulty">
+                        Intermediate
+                    </span>
+
+                </div>
+
+                <h3>
+                    Aptitude Test
+                </h3>
+
+                <p>
+                    Improve quantitative aptitude,
+                    reasoning and verbal ability.
+                </p>
+
+                <div class="practice-details">
+
+                    <span>
+                        📝 15 Questions
+                    </span>
+
+                    <span>
+                        ⏱ 20 Min
+                    </span>
+
+                </div>
+
+                <button class="practice-button"
+                        onclick="startAptitude()">
+
+                    Start Test →
+
+                </button>
+
+            </div>
+
+
+            <!-- AI MOCK -->
+
+            <div class="practice-card ai-practice-card">
+
+                <div class="practice-top">
+
+                    <div class="practice-icon ai">
+                        🤖
+                    </div>
+
+                    <span class="difficulty ai-badge">
+                        AI Powered
+                    </span>
+
+                </div>
+
+                <h3>
+                    AI Mock Interview
+                </h3>
+
+                <p>
+                    Experience a real interview with
+                    AI-generated questions and feedback.
+                </p>
+
+                <div class="practice-details">
+
+                    <span>
+                        🤖 AI Evaluation
+                    </span>
+
+                    <span>
+                        📊 Score
+                    </span>
+
+                </div>
+
+                <button class="practice-button ai-button"
+                        onclick="startMockInterview()">
+
+                    Start AI Interview →
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= BOTTOM GRID ================= -->
+
+    <section class="bottom-dashboard-grid">
+
+
+        <!-- PERFORMANCE -->
+
+        <div class="performance-card">
+
+            <div class="section-title-row">
+
+                <div>
+
+                    <p class="section-label">
+                        PERFORMANCE
+                    </p>
+
+                    <h2>
+                        Your Progress
+                    </h2>
+
+                </div>
+
+                <span class="period">
+                    This Month ▾
+                </span>
+
+            </div>
+
+
+            <div class="fake-chart">
+
+                <div class="chart-line"></div>
+
+                <div class="chart-labels">
+
+                    <span>Week 1</span>
+                    <span>Week 2</span>
+                    <span>Week 3</span>
+                    <span>Week 4</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- STREAK -->
+
+        <div class="streak-card">
+
+            <div class="streak-icon">
+                🔥
+            </div>
+
+            <p>
+                Current Streak
+            </p>
+
+            <h2>
+                7 Days
+            </h2>
+
+            <span>
+                Keep going! You're building
+                a great learning habit.
+            </span>
+
+            <div class="streak-days">
+
+                <div>✓</div>
+                <div>✓</div>
+                <div>✓</div>
+                <div>✓</div>
+                <div>✓</div>
+                <div>✓</div>
+                <div class="today">7</div>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- ================= RECENT ACTIVITY ================= -->
+
+    <section class="activity-section">
+
+        <div class="section-title-row">
+
+            <div>
+
+                <p class="section-label">
+                    RECENT ACTIVITY
+                </p>
+
+                <h2>
+                    Keep Improving
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="activity-list">
+
+            <div class="activity-item">
+
+                <div class="activity-icon">
+                    💻
+                </div>
+
+                <div>
+
+                    <strong>
+                        Technical Interview
+                    </strong>
+
+                    <p>
+                        Completed 10 questions
+                    </p>
+
+                </div>
+
+                <span class="activity-score">
+                    85%
+                </span>
+
+            </div>
+
+
+            <div class="activity-item">
+
+                <div class="activity-icon">
+                    🧠
+                </div>
+
+                <div>
+
+                    <strong>
+                        Aptitude Test
+                    </strong>
+
+                    <p>
+                        Completed 15 questions
+                    </p>
+
+                </div>
+
+                <span class="activity-score">
+                    78%
+                </span>
+
+            </div>
+
+
+            <div class="activity-item">
+
+                <div class="activity-icon">
+                    👔
+                </div>
+
+                <div>
+
+                    <strong>
+                        HR Practice
+                    </strong>
+
+                    <p>
+                        Completed 10 questions
+                    </p>
+
+                </div>
+
+                <span class="activity-score">
+                    82%
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+function startTechnical() {
+    alert("Technical Interview module will start here.");
+}
+
+function startHR() {
+    alert("HR Interview module will start here.");
+}
+
+function startAptitude() {
+    alert("Aptitude Test module will start here.");
+}
+
+function startMockInterview() {
+    alert("AI Mock Interview module will start here.");
+}
+
+</script>
+
+</body>
+</html>
